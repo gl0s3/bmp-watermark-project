@@ -1,10 +1,12 @@
 #include "watermark.h"
-#include "imageBMP.h"
+#include "color.h"
+#include<iostream>
+
 
 ImageBMP ApplyWatermark(const ImageBMP& original, const ImageBMP& watermark) {
-    if (watermark.width() > original.width() || watermark.height() > original.height()) {
+    if (watermark.GetWidth() > original.GetWidth() || watermark.GetHeight() > original.GetHeight()) {
         std::cerr << "Error: the watermark must not be larger than the original image!" << std::endl;
-        return;
+        return ImageBMP();
     }//verification of dimensional acceptability
     ImageBMP result = original;
     for (std::size_t y = 0; y < watermark.GetHeight(); ++y) {
