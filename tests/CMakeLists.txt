@@ -11,6 +11,13 @@ target_compile_definitions(bmp_tests PRIVATE
     TEST_CASES_DIR="${CMAKE_SOURCE_DIR}/tests/bmphandler_test/test_cases"
 )
 
+target_compile_definitions(bmp_tests PRIVATE
+    WATERMARK_CASES_DIR="${CMAKE_CURRENT_SOURCE_DIR}/applyWatermark_test/test_cases"
+    WATERMARK_EXE_PATH="$<TARGET_FILE:bmp_watermark>"
+)
+
+add_dependencies(bmp_tests bmp_watermark)
+
 target_link_libraries(bmp_tests PRIVATE
     bmp_lib
     GTest::gtest_main
