@@ -1,6 +1,7 @@
 find_package(GTest REQUIRED)
 
 add_executable(bmp_tests
+    applyWatermark_test/applyWatermark_test.cpp
     color_test/color_test.cpp
     imagebmp_test/imagebmp_test.cpp
     bmphandler_test/bmphandler_test.cpp
